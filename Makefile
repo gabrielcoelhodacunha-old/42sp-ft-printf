@@ -15,11 +15,12 @@ RM	= rm -f
 all:		$(LIBFT) $(NAME)
 
 $(LIBFT):	$(LIBFTP)/Makefile
-		$(MAKE) -C $(LIBFTP) all
-		$(MAKE) -C $(LIBFTP) clean
+		$(MAKE) -C $(LIBFTP) -s all
+		$(MAKE) -C $(LIBFTP) -s clean
+		cp $(LIBFT) $(NAME)
 
 $(NAME):	$(LIBFT) $(OBJS) $(INCLUDE)
-		$(AR) $(NAME) $(LIBFT) $(OBJS)
+		$(AR) $(NAME) $(OBJS)
 
 clean:
 		$(RM) $(OBJS)
