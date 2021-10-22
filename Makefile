@@ -3,13 +3,17 @@ LIBFTP	= ./libft
 LIBFT	= $(LIBFTP)/libft.a
 CC	= clang
 CFLAGS	= -Wall -Wextra -Werror
-SRC	= ft_printf.c
+UP	= ./utils
+USRC	= $(UP)/ft_printf_utils.c \
+	  $(UP)/print_char.c \
+	  $(UP)/print_string.c
+SRC	= $(USRC) ft_printf.c
 INCLUDE = ft_printf.h
 OBJS	= $(SRC:.c=.o)
 AR	= ar rcs
 RM	= rm -f
 
-.c.o:		$(SRC)
+.c.o:
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all:		$(LIBFT) $(NAME)
@@ -17,9 +21,9 @@ all:		$(LIBFT) $(NAME)
 $(LIBFT):	$(LIBFTP)/Makefile
 		$(MAKE) -C $(LIBFTP) -s all
 		$(MAKE) -C $(LIBFTP) -s clean
-		cp $(LIBFT) $(NAME)
 
 $(NAME):	$(LIBFT) $(OBJS) $(INCLUDE)
+		cp $(LIBFT) $(NAME)
 		$(AR) $(NAME) $(OBJS)
 
 clean:
