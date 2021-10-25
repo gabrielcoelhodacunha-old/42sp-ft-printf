@@ -16,38 +16,35 @@ int	print_without_format(const char **format, char *format_specifier)
 	str_without_format = ft_substr(*format, 0, len);
 	if (!str_without_format)
 		return (-1);
-	print_string(str_without_format);
+	print_string(str_without_format, NULL);
 	(*format) += len;
 	free(str_without_format);
 	return (len);
 }
 
-int	check_flags(const char **format, int flags[])
+int	check_flags(const char **format, int *flags)
 {
+	flags[0] = 1;
 	while (**format
 		&& (ft_strchr("-0.# +", **format) || ft_isdigit(**format)))
 		(*format)++;
 	return (0);
 }
 
-int	print_format(char format, va_list args)
+int	print_format(char format, va_list args, int *flags)
 {
-	if (format == 'c')
-		return (print_char(va_arg(args, int)));
-	else if (format == 's')
-		return (print_string(va_arg(args, char *)));
-	else if (format == 'p')
-		;
-	else if (format == 'd' || format == 'i')
-		;
-	else if (format == 'u')
-		;
-	else if (format == 'x')
-		;
-	else if (format == 'X')
-		;
-	else if (format == '%')
-		;
+	if (ft_strchr("c%", format))
+		return (print_char(va_arg(args, int), flags));
+	else if (ft_strchr("s", format))
+		return (print_string(va_arg(args, char *), flags));
+	else if (ft_strchr("p", format))
+		return (print_pointer(va_arg(args, void *), flags));
+	else if (ft_strchr("di", format))
+		return (print_signed_decimal(va_arg(args, int), flags));
+	else if (ft_strchr("u", format))
+		return (print_unsigned_decimal(va_arg(args, int), flags));
+	else if (ft_strchr("xX", format))
+		return (print_hexadecimal(va_arg(args, int), flags, format));
 	return (-1);
 }
 
@@ -58,5 +55,5 @@ int	print_formated(const char **format, va_list args)
 	(*format)++;
 	if (check_flags(format, flags))
 		return (-1);
-	return (print_format(*(*format)++, args));
+	return (print_format(*(*format)++, args, flags));
 }
