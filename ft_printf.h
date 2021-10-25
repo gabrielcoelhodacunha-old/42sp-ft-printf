@@ -2,6 +2,7 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include "./libft/libft.h"
+# include "./utils/utils.h"
 # define NUMBER_OF_FLAGS 8
 
 enum {
@@ -22,12 +23,5 @@ int		print_without_format(const char **format, char *format_specifier);
 int		check_flags(const char **format, int flags[]);
 int		print_format(char format, va_list args, int *flags);
 int		print_formated(const char **format, va_list args);
-
-int		print_char(char c, int *flags);
-int		print_string(char *string, int *flags);
-int		print_pointer(void *pointer, int *flags);
-int		print_signed_decimal(int decimal, int *flags);
-int		print_unsigned_decimal(int decimal, int *flags);
-int		print_hexadecimal(int decimal, int *flags, char format);
 
 #endif

@@ -14,7 +14,7 @@ int	ft_printf(const char *format, ...)
 	while (*format)
 	{
 		format_specifier = get_format_specifier(format);
-		if (format_specifier)
+		if (format_specifier == format)
 			len = print_formated(&format, args);
 		else
 			len = print_without_format(&format, format_specifier);
