@@ -3,7 +3,12 @@ LIBFTP	= ./libft
 LIBFT	= $(LIBFTP)/libft.a
 CC	= clang
 CFLAGS	= -Wall -Wextra -Werror
-SRC	= ft_printf.c
+SRC	= ft_printf.c \
+	  print_without_format.c \
+	  print_formated.c \
+	  get_flags.c \
+	  print_char.c \
+	  print_string.c
 INCLUDE	= ft_printf.h
 OBJP	= ./obj/
 OBJS	= $(SRC:%.c=$(OBJP)%.o)
