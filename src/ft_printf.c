@@ -1,5 +1,7 @@
 #include "../include/ft_printf.h"
 
+static char	*get_format_specifier(const char *format);
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -24,4 +26,9 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (char_count);
+}
+
+static char	*get_format_specifier(const char *format)
+{
+	return (ft_strchr(format, '%'));
 }

@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../include/ft_printf.h"
 
 static void	to_upper(unsigned int iteration, char *str);
 static int	handle_flags(int decimal, int *flags, char format);

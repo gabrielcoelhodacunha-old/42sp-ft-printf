@@ -8,27 +8,28 @@ INCLUDE	= ft_printf.h
 OBJP	= ./obj/
 OBJS	= $(SRC:%.c=$(OBJP)%.o)
 AR	= ar rcs
-RM	= rm -f
+RM	= rm -fr
 VPATH	= . ./src ./include $(OBJP)
 
 $(OBJP)%.o:	%.c
+		mkdir -p $(OBJP)
 		$(CC) $(CFLAGS) -c $< -o $@
 
 all:		$(LIBFT) $(NAME)
 
 $(LIBFT):	$(LIBFTP)/Makefile
-		$(MAKE) -C $(LIBFTP) -s all
-		$(MAKE) -C $(LIBFTP) -s clean
+		$(MAKE) -C $(LIBFTP) -s
 
 $(NAME):	$(LIBFT) $(OBJS) $(INCLUDE)
 		cp $(LIBFT) $(NAME)
 		$(AR) $(NAME) $(OBJS)
 
 clean:
-		$(RM) $(OBJS)
+		$(MAKE) -C $(LIBFTP) -s clean
+		$(RM) $(OBJP)
 
 fclean:		clean
-		$(RM) $(LIBFT)
+		$(MAKE) -C $(LIBFTP) -s fclean
 		$(RM) $(NAME)
 
 re:		fclean all
