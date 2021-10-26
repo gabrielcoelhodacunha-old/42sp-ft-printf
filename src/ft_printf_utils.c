@@ -22,40 +22,51 @@ int	print_without_format(const char **format, char *format_specifier)
 	return (len);
 }
 
-void	change_width(int *flags, int flag, char number)
+void	change_width(int *flags, char number)
 {
+	int	flag;
+
+	if (flags[PRECISION])
+		flag = PRECISION_WIDTH;
+	else
+		flag = FIELD_WIDTH;
 	flags[flag] *= 10;
 	flags[flag] += number - '0';
 }
 
-int	check_flags(const char **format, int *flags)
+int	is_type(char c)
 {
-	char	*format_location;
+	return (1 && ft_strchr(TYPES, c));
+}
 
-	while (**format && !ft_strchr("cspdiuxX%", **format))
+int	is_flag(char c)
+{
+	return (ft_isdigit(c) || ft_strchr(FLAGS, c));
+}
+
+void	check_flags(const char **format, int *flags)
+{
+	char	*flag;
+
+	while (is_flag(**format))
 	{
-		format_location = ft_strchr("-.# +", **format);
+		flag = ft_strchr(FLAGS, **format);
 		if (**format == '0'
 			&& (!flags[PRECISION_WIDTH] || !flags[FIELD_WIDTH]))
 			flags[ZERO_PADDING]++;
 		else if (ft_isdigit(**format))
-			if (flags[PRECISION])
-				change_width(flags, PRECISION_WIDTH, **format);
-			else
-				change_width(flags, FIELD_WIDTH, **format);
-		else if (format_location)
-		       flags[format_location - *format]++;	
-		else
-			return (-1);	
+			change_width(flags, **format);
+		else if (flag)
+			flags[flag - FLAGS]++;	
 		(*format)++;
 	}
-	return (0);
 }
 
 int	print_format(char format, va_list args, int *flags)
 {
 	if (ft_strchr("c%", format))
 		return (print_char(va_arg(args, int), flags));
+	/*
 	else if (ft_strchr("s", format))
 		return (print_string(va_arg(args, char *), flags, format));
 	else if (ft_strchr("p", format))
@@ -66,6 +77,7 @@ int	print_format(char format, va_list args, int *flags)
 		return (print_unsigned_decimal(va_arg(args, int), flags));
 	else if (ft_strchr("xX", format))
 		return (print_hexadecimal(va_arg(args, int), flags, format));
+	*/
 	return (-1);
 }
 
@@ -75,7 +87,6 @@ int	print_formated(const char **format, va_list args)
 
 	(*format)++;
 	initialize_flags(flags);
-	if (check_flags(format, flags))
-		return (-1);
+	check_flags(format, flags);
 	return (print_format(*(*format)++, args, flags));
 }

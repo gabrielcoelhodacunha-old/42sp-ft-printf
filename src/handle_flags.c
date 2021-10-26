@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 void	initialize_flags(int *flags)
 {

@@ -3,18 +3,16 @@ LIBFTP	= ./libft
 LIBFT	= $(LIBFTP)/libft.a
 CC	= clang
 CFLAGS	= -Wall -Wextra -Werror
-UP	= ./utils
-USRC	= $(UP)/ft_printf_utils.c \
-	  $(UP)/print_char.c \
-	  $(UP)/print_string.c
-SRC	= $(USRC) ft_printf.c
-INCLUDE = ft_printf.h
-OBJS	= $(SRC:.c=.o)
+SRC	= ft_printf.c
+INCLUDE	= ft_printf.h
+OBJP	= ./obj/
+OBJS	= $(SRC:%.c=$(OBJP)%.o)
 AR	= ar rcs
 RM	= rm -f
+VPATH	= . ./src ./include $(OBJP)
 
-.c.o:
-		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+$(OBJP)%.o:	%.c
+		$(CC) $(CFLAGS) -c $< -o $@
 
 all:		$(LIBFT) $(NAME)
 
