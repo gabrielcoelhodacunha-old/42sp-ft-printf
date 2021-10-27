@@ -1,10 +1,10 @@
 #include "../include/ft_printf.h"
 
-static size_t	determine_len(unsigned int un, size_t base_len);
-static void		convert(unsigned int un, char *str, size_t len,
+static size_t	determine_len(t_ull un, size_t base_len);
+static void		convert(t_ull un, char *str, size_t len,
 				t_uitoa_base *args);
 
-char	*ft_uitoa_base(unsigned int un, char *base)
+char	*ft_uitoa_base(t_ull un, char *base)
 {
 	t_uitoa_base	args;
 	size_t		len;
@@ -19,15 +19,14 @@ char	*ft_uitoa_base(unsigned int un, char *base)
 	return (args.str);
 }
 
-static void	convert(unsigned int un, char *base, size_t len,
-			t_uitoa_base *args)
+static void	convert(t_ull un, char *base, size_t len, t_uitoa_base *args)
 {
 	if (un >= args->base_len)
 		convert(un / args->base_len, base, len - 1, args);
 	args->str[len] = base[un % args->base_len];
 }
 
-static size_t	determine_len(unsigned int un, size_t base_len)
+static size_t	determine_len(t_ull un, size_t base_len)
 {
 	size_t len;
 

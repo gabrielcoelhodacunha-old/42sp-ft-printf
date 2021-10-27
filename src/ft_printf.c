@@ -20,7 +20,7 @@ int	ft_printf(const char *format, ...)
 			len = print_formated(&format, args);
 		else
 			len = print_without_format(&format, format_specifier);
-		if (len == -1)
+		if (len < 0)
 			return (-1);
 		char_count += len;
 	}
