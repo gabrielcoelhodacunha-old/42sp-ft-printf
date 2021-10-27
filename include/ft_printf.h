@@ -16,6 +16,12 @@ enum {
 	PRECISION_WIDTH
 } e_flags;
 
+typedef struct	s_uitoa_base
+{
+	char	*str;
+	size_t	base_len;
+}	t_uitoa_base;
+
 int		ft_printf(const char *format, ...);
 
 int		print_without_format(const char **format, char *format_specifier);
@@ -26,9 +32,10 @@ int		print_char(char c, int *flags);
 int		print_string(char *string, int *flags, char format);
 int		print_pointer(void *pointer, int *flags);
 int		print_signed_decimal(int decimal, int *flags);
-int		print_unsigned_decimal(int decimal, int *flags);
-int		print_hexadecimal(int decimal, int *flags, char format);
+int		print_unsigned_decimal(unsigned int decimal, int *flags);
+int		print_hexadecimal(unsigned int decimal, int *flags,
+			char format);
 
-char	*ft_itoa_hexadecimal(int n);
+char	*ft_uitoa_base(unsigned int un, char *base);
 
 #endif

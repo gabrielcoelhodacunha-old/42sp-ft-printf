@@ -25,10 +25,12 @@ static int	print_format(char format, va_list args, int *flags)
 	else if (ft_strchr("di", format))
 		return (print_signed_decimal(va_arg(args, int), flags));
 	else if (ft_strchr("u", format))
-		return (print_unsigned_decimal(va_arg(args, int), flags));
-	else if (ft_strchr("xX", format))
-		return (print_hexadecimal(va_arg(args, int), flags, format));
+		return (print_unsigned_decimal(va_arg(args, unsigned int),
+				flags));
 	*/
+	else if (ft_strchr("xX", format))
+		return (print_hexadecimal(va_arg(args, unsigned int),
+				flags, format));
 	return (-1);
 }
 

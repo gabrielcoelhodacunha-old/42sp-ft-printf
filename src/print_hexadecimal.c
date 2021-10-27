@@ -1,14 +1,13 @@
 #include "../include/ft_printf.h"
 
 static void	to_upper(unsigned int iteration, char *str);
-static int	handle_flags(int decimal, int *flags, char format);
 
-int	print_hexadecimal(int decimal, int *flags, char format)
+int	print_hexadecimal(unsigned int decimal, int *flags, char format)
 {
 	char	*hexadecimal;
 	int		len;
 
-	hexadecimal = ft_itoa_hexadecimal(decimal);
+	hexadecimal = ft_uitoa_base(decimal, "0123456789abcdef");
 	if (format == 'X')
 		ft_striteri(hexadecimal, to_upper);
 	len = print_string(hexadecimal, flags, format);
