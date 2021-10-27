@@ -9,7 +9,7 @@ enum {
 	NEGATIVE_WIDTH,
 	PRECISION,
 	ALTERNATE_FORM,
-	BLANK_PADDING,
+	BLANK,
 	SIGNED,
 	ZERO_PADDING,
 	FIELD_WIDTH,
@@ -26,6 +26,7 @@ int		ft_printf(const char *format, ...);
 
 int		print_without_format(const char **format, char *format_specifier);
 void	get_flags(const char **format, int *flags);
+void	set_flags(char format, int *flags);
 int		print_formated(const char **format, va_list args);
 
 int		print_char(char c, int *flags);
@@ -37,5 +38,8 @@ int		print_hexadecimal(unsigned int decimal, int *flags,
 			char format);
 
 char	*ft_uitoa_base(unsigned int un, char *base);
+
+void	handle_flags(char **str, int *flags, char format);
+void	handle_alternate_form(char **str, char form);
 
 #endif

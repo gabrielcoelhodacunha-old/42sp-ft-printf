@@ -10,6 +10,7 @@ int	print_formated(const char **format, va_list args)
 	(*format)++;
 	initialize_flags(flags);
 	get_flags(format, flags);
+	set_flags(**format, flags);
 	return (print_format(*(*format)++, args, flags));
 }
 
@@ -19,10 +20,8 @@ static int	print_format(char format, va_list args, int *flags)
 		return (print_char(va_arg(args, int), flags));
 	else if (ft_strchr("s", format))
 		return (print_string(va_arg(args, char *), flags, format));
-	/*
 	else if (ft_strchr("p", format))
 		return (print_pointer(va_arg(args, void *), flags));
-	*/
 	else if (ft_strchr("di", format))
 		return (print_signed_decimal(va_arg(args, int), flags));
 	else if (ft_strchr("u", format))
