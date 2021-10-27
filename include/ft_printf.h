@@ -42,6 +42,7 @@ int		print_hexadecimal(t_ull decimal, int *flags, char format);
 char	*ft_uitoa_base(t_ull un, char *base);
 
 void	handle_flags(char **str, int *flags, char format);
-void	handle_alternate_form(char **str, char form);
+void	handle_alternate_form(char **str, int *flags, char format);
+void	handle_zero_padding(char **str, int *flags);
 
 #endif
