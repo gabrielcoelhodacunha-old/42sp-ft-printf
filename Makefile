@@ -4,7 +4,8 @@ LIBFT	= $(LIBFTP)/libft.a
 CC	= clang
 CFLAGS	= -Wall -Wextra -Werror
 SRC	= ft_printf.c print_without_format.c print_formated.c get_flags.c \
-	  print_char.c print_string.c print_hexadecimal.c ft_uitoa_base.c
+	  print_char.c print_string.c print_hexadecimal.c ft_uitoa_base.c \
+	  print_signed_decimal.c print_unsigned_decimal.c
 INCLUDE	= ft_printf.h
 OBJP	= ./obj/
 OBJS	= $(SRC:%.c=$(OBJP)%.o)
