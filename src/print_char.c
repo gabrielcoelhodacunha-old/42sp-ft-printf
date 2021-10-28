@@ -1,6 +1,6 @@
 #include "../include/ft_printf.h"
 
-int	print_char(char c, int *flags)
+int	print_char(char c, size_t *flags)
 {
 	char	str[2];
 	int	len;

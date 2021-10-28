@@ -1,6 +1,6 @@
 #include "../include/ft_printf.h"
 
-int	print_unsigned_decimal(t_ull decimal, int *flags)
+int	print_unsigned_decimal(t_ull decimal, size_t *flags)
 {
 	char	*str;
 	int	len;

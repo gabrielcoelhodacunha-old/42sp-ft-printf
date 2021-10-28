@@ -1,11 +1,11 @@
 #include "../include/ft_printf.h"
 
-static void	initialize_flags(int *flags);
-static int	print_format(char format, va_list args, int *flags);
+static void	initialize_flags(size_t *flags);
+static int	print_format(char format, va_list args, size_t *flags);
 
 int	print_formated(const char **format, va_list args)
 {
-	int	flags[NUMBER_OF_FLAGS];
+	size_t	flags[NUMBER_OF_FLAGS];
 
 	(*format)++;
 	initialize_flags(flags);
@@ -14,7 +14,7 @@ int	print_formated(const char **format, va_list args)
 	return (print_format(*(*format)++, args, flags));
 }
 
-static int	print_format(char format, va_list args, int *flags)
+static int	print_format(char format, va_list args, size_t *flags)
 {
 	if (ft_strchr("c", format))
 		return (print_char(va_arg(args, int), flags));
@@ -33,7 +33,7 @@ static int	print_format(char format, va_list args, int *flags)
 	return (-1);
 }
 
-static void	initialize_flags(int *flags)
+static void	initialize_flags(size_t *flags)
 {
 	int	flag;
 

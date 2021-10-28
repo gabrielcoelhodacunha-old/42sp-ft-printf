@@ -1,6 +1,6 @@
 #include "../include/ft_printf.h"
 
-void	set_flags(char format, int *flags)
+void	set_flags(char format, size_t *flags)
 {
 	if (ft_strchr("p", format))
 		flags[ALTERNATE_FORM] = 1;

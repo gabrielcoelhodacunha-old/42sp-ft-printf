@@ -1,6 +1,6 @@
 #include "../include/ft_printf.h"
 
-int	print_signed_decimal(t_ll decimal, int *flags)
+int	print_signed_decimal(t_ll decimal, size_t *flags)
 {
 	char	*decimal_str;
 	int		len;

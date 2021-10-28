@@ -1,6 +1,6 @@
 #include "../include/ft_printf.h"
 
-void	handle_alternate_form(char **str, int flags[], char format)
+void	handle_alternate_form(char **str, size_t *flags, char format)
 {
 	char	*old_str;
 

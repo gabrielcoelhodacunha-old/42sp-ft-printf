@@ -2,7 +2,7 @@
 
 static void	to_upper(unsigned int iteration, char *str);
 
-int	print_hexadecimal(t_ull decimal, int *flags, char format)
+int	print_hexadecimal(t_ull decimal, size_t *flags, char format)
 {
 	char	*hexadecimal;
 	int		len;

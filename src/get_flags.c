@@ -1,9 +1,9 @@
 #include "../include/ft_printf.h"
 
 static int	is_flag(char c);
-static void	increase_width(int *flags, char number);
+static void	increase_width(size_t *flags, char number);
 
-void	get_flags(const char **format, int *flags)
+void	get_flags(const char **format, size_t *flags)
 {
 	char	*flag;
 
@@ -22,7 +22,7 @@ void	get_flags(const char **format, int *flags)
 	}
 }
 
-static void	increase_width(int *flags, char number)
+static void	increase_width(size_t *flags, char number)
 {
 	int	flag;
 
