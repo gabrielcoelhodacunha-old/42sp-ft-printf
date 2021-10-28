@@ -42,7 +42,8 @@ int		print_hexadecimal(t_ull decimal, size_t *flags, char format);
 char	*ft_uitoa_base(t_ull un, char *base);
 
 void	handle_flags(char **str, size_t *flags, char format);
-void	handle_alternate_form(char **str, size_t *flags, char format);
+void	handle_precision(char **str, size_t *flags, char format);
 void	handle_width(char **str, size_t *flags, char format);
+void	handle_alternate_form(char **str, size_t *flags, char format);
 
 #endif

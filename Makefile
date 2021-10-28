@@ -7,7 +7,7 @@ SRC	= ft_printf.c print_without_format.c print_formated.c get_flags.c \
 	  print_char.c print_string.c print_hexadecimal.c ft_uitoa_base.c \
 	  print_signed_decimal.c print_unsigned_decimal.c set_flags.c \
 	  print_pointer.c handle_flags.c handle_alternate_form.c \
-	  handle_width.c
+	  handle_width.c handle_precision.c
 INCLUDE	= ft_printf.h
 OBJP	= ./obj/
 OBJS	= $(SRC:%.c=$(OBJP)%.o)

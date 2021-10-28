@@ -9,6 +9,6 @@ void	set_flags(char format, size_t *flags)
 		flags[BLANK] = 0;
 	if (ft_strchr("diuxX", format) && flags[PRECISION_WIDTH])
 		flags[ZERO_PADDING] = 1;
-	if (flags[ZERO_PADDING] && flags[NEGATIVE_WIDTH])
+	if (flags[NEGATIVE_WIDTH])
 		flags[ZERO_PADDING] = 0;
 }
