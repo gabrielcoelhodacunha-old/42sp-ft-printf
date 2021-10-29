@@ -16,8 +16,9 @@ enum {
 	PRECISION_WIDTH
 } e_flags;
 
-typedef long long t_ll;
-typedef unsigned long long t_ull;
+typedef	unsigned		t_u;
+typedef long long		t_ll;
+typedef unsigned long long	t_ull;
 
 typedef struct	s_uitoa_base
 {

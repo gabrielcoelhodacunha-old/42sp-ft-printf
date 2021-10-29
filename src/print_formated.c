@@ -23,11 +23,11 @@ static int	print_format(char format, va_list args, size_t *flags)
 	else if (ft_strchr("p", format))
 		return (print_pointer(va_arg(args, void *), flags));
 	else if (ft_strchr("di", format))
-		return (print_signed_decimal(va_arg(args, t_ll), flags));
+		return (print_signed_decimal(va_arg(args, int), flags));
 	else if (ft_strchr("u", format))
-		return (print_unsigned_decimal(va_arg(args, t_ull), flags));
+		return (print_unsigned_decimal(va_arg(args, t_u), flags));
 	else if (ft_strchr("xX", format))
-		return (print_hexadecimal(va_arg(args, t_ull), flags, format));
+		return (print_hexadecimal(va_arg(args, t_u), flags, format));
 	else if (ft_strchr("%", format))
 		return (print_char('%', NULL));
 	return (-1);
