@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_pointer.c                                    :+:      :+:    :+:   */
+/*   ft_printf_constants.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcoelho- <gcoelho-@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 10:14:01 by gcoelho-          #+#    #+#             */
-/*   Updated: 2021/10/29 10:14:01 by gcoelho-         ###   ########.fr       */
+/*   Created: 2021/10/29 10:48:08 by gcoelho-          #+#    #+#             */
+/*   Updated: 2021/10/29 10:48:08 by gcoelho-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#ifndef FT_PRINTF_CONSTANTS_H
+# define FT_PRINTF_CONSTANTS_H
+# define FLAGS "-.# +"
+# define NUMBER_OF_FLAGS 8
 
-int	print_pointer(void *pointer, size_t *flags)
-{
-	return (print_hexadecimal((t_ull) pointer, flags, 'p'));
-}
+enum {
+	NEGATIVE_WIDTH,
+	PRECISION,
+	ALTERNATE_FORM,
+	BLANK,
+	SIGNED,
+	ZERO_PADDING,
+	FIELD_WIDTH,
+	PRECISION_WIDTH
+} e_flags;
+
+#endif

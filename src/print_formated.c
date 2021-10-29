@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_formated.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gcoelho- <gcoelho-@student.42sp.org>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/29 10:14:01 by gcoelho-          #+#    #+#             */
+/*   Updated: 2021/10/29 10:22:48 by gcoelho-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ft_printf.h"
 
 static void	initialize_flags(size_t *flags);
@@ -25,7 +37,7 @@ static int	print_format(char format, va_list args, size_t *flags)
 	else if (ft_strchr("di", format))
 		return (print_signed_decimal(va_arg(args, int), flags));
 	else if (ft_strchr("u", format))
-		return (print_unsigned_decimal(va_arg(args, t_u), flags));
+		return (print_unsigned_decimal(va_arg(args, unsigned), flags));
 	else if (ft_strchr("xX", format))
 		return (print_hexadecimal(va_arg(args, t_u), flags, format));
 	else if (ft_strchr("%", format))
