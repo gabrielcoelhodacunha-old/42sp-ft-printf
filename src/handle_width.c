@@ -6,42 +6,30 @@
 /*   By: gcoelho- <gcoelho-@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 10:14:01 by gcoelho-          #+#    #+#             */
-/*   Updated: 2021/10/29 10:14:01 by gcoelho-         ###   ########.fr       */
+/*   Updated: 2021/10/29 14:32:41 by gcoelho-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
+static size_t	get_str_len(char **str, size_t *flags, char format);
+static char		*get_padding(size_t padding_len, size_t *flags);
+
 void	handle_width(char **str, size_t *flags, char format)
 {
 	char	*old_str;
-	char	*width_adjustment;
-	size_t	width;
-	size_t	len;
-	int	is_negative;
+	char	*padding;
+	size_t	padding_len;
+	size_t	str_len;
+	int		is_negative;
 
-	len = ft_strlen(*str);
-	if (format == 'c' && !len)
-		len = 1;
-	if (flags[PRECISION] && ft_strchr("di", format)
-		&& ft_strchr(*str, '-') && flags[ZERO_PADDING])
-		len--;
-	if (flags[FIELD_WIDTH] <= len)
+	str_len = get_str_len(str, flags, format);
+	if (flags[FIELD_WIDTH] <= str_len)
 		return ;
 	old_str = *str;
-	width = flags[FIELD_WIDTH] - len;
-	width_adjustment = ft_calloc(width + 1, 1);
-	if (!width_adjustment)
-	{
-		free(*str);
-		*str = NULL;
-		return ;
-	}
-	if (flags[ZERO_PADDING])
-		ft_memset(width_adjustment, '0', width);
-	else
-		ft_memset(width_adjustment, ' ', width);
-	if (ft_strchr("di", format) && ft_strchr(*str, '-')
+	padding_len = flags[FIELD_WIDTH] - str_len;
+	padding = get_padding(padding_len, flags);
+	if (ft_strchr("di", format) && (*str, '-')
 		&& flags[ZERO_PADDING])
 		is_negative = 1;
 	else
@@ -58,4 +46,33 @@ void	handle_width(char **str, size_t *flags, char format)
 	}
 	free(width_adjustment);
 	free(old_str);
+}
+
+static char	*get_padding(size_t padding_len, size_t *flags)
+{
+	char	c;
+	char	*padding;
+
+	padding = ft_calloc(padding_len + 1, 1);
+	if (!padding)
+		return (NULL);
+	if (flags[ZERO_PADDING])
+		c = '0';
+	else
+		c = ' ';
+	ft_memset(padding, c, padding_len);
+	return (padding);
+}
+
+static size_t	get_str_len(char **str, size_t *flags, char format)
+{
+	size_t	len;
+
+	len = ft_strlen(*str);
+	if (format == 'c' && !len)
+		len = 1;
+	if (flags[PRECISION] && ft_strchr("di", format)
+		&& **str == '-' && flags[ZERO_PADDING])
+		len--;
+	return (len);
 }

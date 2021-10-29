@@ -6,7 +6,7 @@
 /*   By: gcoelho- <gcoelho-@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 10:14:01 by gcoelho-          #+#    #+#             */
-/*   Updated: 2021/10/29 10:14:01 by gcoelho-         ###   ########.fr       */
+/*   Updated: 2021/10/29 13:23:03 by gcoelho-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,5 @@ void	handle_alternate_form(char **str, size_t *flags, char format)
 		*str = ft_strjoin("0x", old_str);
 	else if (format == 'X')
 		*str = ft_strjoin("0X", old_str);
-	else
-		*str = ft_strdup(old_str);
 	free(old_str);
 }

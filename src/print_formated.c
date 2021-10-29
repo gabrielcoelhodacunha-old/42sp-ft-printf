@@ -6,7 +6,7 @@
 /*   By: gcoelho- <gcoelho-@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 10:14:01 by gcoelho-          #+#    #+#             */
-/*   Updated: 2021/10/29 10:22:48 by gcoelho-         ###   ########.fr       */
+/*   Updated: 2021/10/29 12:57:34 by gcoelho-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	print_format(char format, va_list args, size_t *flags)
 	else if (ft_strchr("u", format))
 		return (print_unsigned_decimal(va_arg(args, unsigned), flags));
 	else if (ft_strchr("xX", format))
-		return (print_hexadecimal(va_arg(args, t_u), flags, format));
+		return (print_hexadecimal(va_arg(args, unsigned), flags, format));
 	else if (ft_strchr("%", format))
 		return (print_char('%', NULL));
 	return (-1);

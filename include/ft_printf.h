@@ -6,7 +6,7 @@
 /*   By: gcoelho- <gcoelho-@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 10:14:00 by gcoelho-          #+#    #+#             */
-/*   Updated: 2021/10/29 10:47:28 by gcoelho-         ###   ########.fr       */
+/*   Updated: 2021/10/29 13:11:45 by gcoelho-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "../libft/libft.h"
 # include "ft_printf_constants.h"
 # include "ft_printf_types.h"
-# define FLAGS "-.# +"
 
 int		ft_printf(const char *format, ...);
 

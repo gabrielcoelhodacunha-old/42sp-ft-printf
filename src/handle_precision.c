@@ -6,7 +6,7 @@
 /*   By: gcoelho- <gcoelho-@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 10:14:01 by gcoelho-          #+#    #+#             */
-/*   Updated: 2021/10/29 10:14:01 by gcoelho-         ###   ########.fr       */
+/*   Updated: 2021/10/29 13:39:40 by gcoelho-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	handle_precision(char **str, size_t *flags, char format)
 		flags_aux[NEGATIVE_WIDTH] = 0;
 		handle_width(str, flags_aux, format);
 	}
-	else if (ft_strchr("diuxX", format) && old_str[0] == '0')
+	else if (ft_strchr("diuxX", format) && *old_str == '0')
 		*str = ft_strdup("");
 	else
 		*str = ft_strdup(old_str);

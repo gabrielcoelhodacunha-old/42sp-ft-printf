@@ -6,7 +6,7 @@
 /*   By: gcoelho- <gcoelho-@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 10:14:01 by gcoelho-          #+#    #+#             */
-/*   Updated: 2021/10/29 10:14:01 by gcoelho-         ###   ########.fr       */
+/*   Updated: 2021/10/29 13:17:35 by gcoelho-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static size_t	determine_len(t_ull un, size_t base_len);
 static void		convert(t_ull un, char *str, size_t len,
-				t_uitoa_base *args);
+					t_uitoa_base *args);
 
 char	*ft_uitoa_base(t_ull un, char *base)
 {
 	t_uitoa_base	args;
-	size_t		len;
+	size_t			len;
 
 	args.base_len = ft_strlen(base);
 	len = determine_len(un, args.base_len);
-	args.str = malloc((len + 1) * sizeof(char));
+	args.str = malloc(len + 1);
 	if (!args.str)
 		return (NULL);
 	convert(un, base, len - 1, &args);
@@ -40,7 +40,7 @@ static void	convert(t_ull un, char *base, size_t len, t_uitoa_base *args)
 
 static size_t	determine_len(t_ull un, size_t base_len)
 {
-	size_t len;
+	size_t	len;
 
 	len = 1;
 	while (un >= base_len)
