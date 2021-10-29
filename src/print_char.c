@@ -6,7 +6,7 @@
 /*   By: gcoelho- <gcoelho-@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 10:14:01 by gcoelho-          #+#    #+#             */
-/*   Updated: 2021/10/29 10:14:01 by gcoelho-         ###   ########.fr       */
+/*   Updated: 2021/10/29 15:03:26 by gcoelho-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	print_char(char c, size_t *flags)
 {
 	char	str[2];
-	int	len;
+	int		len;
 
 	str[0] = c;
 	str[1] = '\0';
