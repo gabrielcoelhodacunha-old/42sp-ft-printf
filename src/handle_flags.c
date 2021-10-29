@@ -6,5 +6,7 @@ void	handle_flags(char **str, size_t *flags, char format)
 		return ;
 	handle_precision(str, flags, format);
 	handle_alternate_form(str, flags, format);
+	handle_signed(str, flags);
+	handle_blank(str, flags);
 	handle_width(str, flags, format);
 }

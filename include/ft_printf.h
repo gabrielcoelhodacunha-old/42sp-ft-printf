@@ -45,5 +45,7 @@ void	handle_flags(char **str, size_t *flags, char format);
 void	handle_precision(char **str, size_t *flags, char format);
 void	handle_width(char **str, size_t *flags, char format);
 void	handle_alternate_form(char **str, size_t *flags, char format);
+void	handle_signed(char **str, size_t *flags);
+void	handle_blank(char **str, size_t *flags);
 
 #endif
