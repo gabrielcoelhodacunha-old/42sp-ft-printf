@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	print_string(char *string, size_t *flags, char format)
 {

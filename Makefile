@@ -1,5 +1,5 @@
 NAME	= libftprintf.a
-LIBFTP	= ./libft
+LIBFTP	= libft
 LIBFT	= $(LIBFTP)/libft.a
 CC		= clang
 CFLAGS	= -Wall -Wextra -Werror
@@ -8,36 +8,39 @@ SRC		= ft_printf.c print_without_format.c print_formated.c get_flags.c \
 		  print_signed_decimal.c print_unsigned_decimal.c set_flags.c \
 		  print_pointer.c handle_flags.c handle_alternate_form.c \
 		  handle_width.c handle_precision.c handle_signed.c handle_blank.c
+SRCP	= src
 INCLUDE	= ft_printf.h ft_printf_constants.h ft_printf_types.h
-OBJP	= ./obj/
-OBJS	= $(SRC:%.c=$(OBJP)%.o)
+ICDP	= include
+ICDS	= -I. -I$(LIBFTP) -I$(ICDP)
+OBJP	= obj
+OBJS	= $(SRC:%.c=$(OBJP)/%.o)
 AR		= ar rcs
 RM		= rm -fr
-VPATH	= . ./src ./include $(OBJP)
+VPATH	= . $(SRCP) $(ICDP) $(OBJP)
 
-$(OBJP)%.o:	%.c
-			$(CC) $(CFLAGS) -c $< -o $@
+$(OBJP)/%.o:	%.c
+				$(CC) $(CFLAGS) $(ICDS) -c $< -o $@
 
-all:		$(LIBFT) $(NAME)
+all:			$(LIBFT) $(NAME)
 
-$(LIBFT):	$(LIBFTP)/Makefile
-			$(MAKE) -C $(LIBFTP) -s
+$(LIBFT):		$(LIBFTP)/Makefile
+				$(MAKE) -C $(LIBFTP) -s
 
 $(OBJP):	
-			mkdir -p $(OBJP)
+				mkdir -p $(OBJP)
 
-$(NAME):	$(LIBFT) $(OBJP) $(OBJS) $(INCLUDE)
-			cp $(LIBFT) $(NAME)
-			$(AR) $(NAME) $(OBJS)
+$(NAME):		$(LIBFT) $(OBJP) $(OBJS) $(INCLUDE)
+				cp $(LIBFT) $(NAME)
+				$(AR) $(NAME) $(OBJS)
 
 clean:
-			$(MAKE) -C $(LIBFTP) -s clean
-			$(RM) $(OBJP)
+				$(MAKE) -C $(LIBFTP) -s clean
+				$(RM) $(OBJP)
 
-fclean:		clean
-			$(MAKE) -C $(LIBFTP) -s fclean
-			$(RM) $(NAME)
+fclean:			clean
+				$(MAKE) -C $(LIBFTP) -s fclean
+				$(RM) $(NAME)
 
-re:		fclean all
+re:				fclean all
 
 .PHONY:		all bonus clean fclean re

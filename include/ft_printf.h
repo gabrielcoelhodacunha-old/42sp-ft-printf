@@ -6,14 +6,14 @@
 /*   By: gcoelho- <gcoelho-@student.42sp.org>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 10:14:00 by gcoelho-          #+#    #+#             */
-/*   Updated: 2021/10/29 15:23:21 by gcoelho-         ###   ########.fr       */
+/*   Updated: 2021/11/30 07:47:27 by gcoelho-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
-# include "../libft/libft.h"
+# include "libft.h"
 # include "ft_printf_constants.h"
 # include "ft_printf_types.h"
 

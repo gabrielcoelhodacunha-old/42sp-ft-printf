@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 static size_t	get_str_len(char *str, size_t *flags, char format);
 static char		*get_padding(size_t padding_len, size_t *flags);

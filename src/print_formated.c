@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 static void	initialize_flags(size_t *flags);
 static int	print_format(char format, va_list args, size_t *flags);
