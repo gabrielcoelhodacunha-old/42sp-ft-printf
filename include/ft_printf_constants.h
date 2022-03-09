@@ -15,7 +15,8 @@
 # define FLAGS "-.# +"
 # define NUMBER_OF_FLAGS 8
 
-enum {
+enum e_ft_printf_flags
+{
 	NEGATIVE_WIDTH,
 	PRECISION,
 	ALTERNATE_FORM,
@@ -24,6 +25,6 @@ enum {
 	ZERO_PADDING,
 	FIELD_WIDTH,
 	PRECISION_WIDTH
-} e_flags;
+};
 
 #endif
